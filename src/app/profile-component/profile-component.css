@@ -1,0 +1,372 @@
+/* ==========================================================================
+   THEME LIGHT ULTRA-LUMINEUX - VIOLET & BLEU FONCÉ
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Base Light Mode */
+  --bg-app: #f5f3ff;        /* Violet très clair (fond général) */
+  --bg-white: #ffffff;       /* Blanc pur pour les cartes */
+  --border-light: #e2e8f0;
+
+  /* Couleurs principales : Violet + Bleu foncé */
+  --violet: #7c3aed;        /* Violet vif */
+  --violet-light: #a78bfa;   /* Violet clair */
+  --blue-dark: #1e3a8a;     /* Bleu foncé profond */
+  --blue-mid: #3b82f6;      /* Bleu moyen pour accents */
+
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+
+  /* Gradient mélange Violet + Bleu foncé */
+  --grad-primary: linear-gradient(135deg, #7c3aed 0%, #1e3a8a 100%);
+  --grad-text: linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #1e3a8a 100%);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(30, 58, 138, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--bg-app);
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ==========================================================================
+   STRUCTURE PRINCIPALE (NAV HAUT / BODY / FOOTER BAS)
+   ========================================================================== */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-app);
+}
+
+.max-w-5xl { max-width: 68rem; margin: 0 auto; width: 100%; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.font-mono { font-family: 'Fira Code', monospace; }
+
+.selection-accent::selection {
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--violet);
+}
+
+/* ==========================================================================
+   NAVIGATION FIXE
+   ========================================================================== */
+.dashboard-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  width: 100%;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text-dark);
+}
+
+.brand-accent {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.nav-links { display: flex; gap: 2rem; }
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.nav-link:hover { color: var(--violet); }
+
+/* ==========================================================================
+   MAIN CONTENT
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  padding-top: 100px;
+}
+
+.hero-section { padding: 3rem 0 2rem 0; }
+.hero-badge { color: var(--blue-mid); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; }
+
+.gradient-text {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0.75rem 0;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 1.25rem;
+}
+
+.hero-description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 46rem;
+  margin-bottom: 2rem;
+}
+.text-dark { color: var(--text-dark); }
+
+/* Boutons */
+.cta-group { display: flex; flex-wrap: wrap; gap: 1rem; }
+.btn {
+  padding: 0.85rem 1.75rem;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-primary {
+  background: var(--grad-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.35);
+}
+.btn-secondary {
+  background: white;
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+}
+.btn-secondary:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   COMPÉTENCES - GRID
+   ========================================================================== */
+.section-padding { padding: 5rem 0; }
+.section-title { font-size: 1.85rem; font-weight: 800; margin-bottom: 2.5rem; }
+.num-accent { color: var(--blue-dark); font-weight: 800; }
+
+.skills-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  padding: 2rem 1.75rem;
+  border-radius: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+
+/* Cartes avec bordures colorées au survol */
+.card-violet:hover { border-color: var(--violet); }
+.card-blue-dark:hover { border-color: var(--blue-dark); }
+.card-violet-blue:hover {
+  border-image: var(--grad-primary);
+  border-image-slice: 1;
+}
+
+.card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ==========================================================================
+   PROJETS AVEC SKELETON LOADING
+   ========================================================================== */
+.projects-stack { display: flex; flex-direction: column; gap: 2.5rem; }
+
+.project-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .project-card { grid-template-columns: 1.2fr 1fr; }
+}
+.project-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--violet-light);
+}
+
+.project-info { padding: 2rem; }
+.project-tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.tag-violet { color: var(--violet); }
+.tag-blue-dark { color: var(--blue-dark); }
+
+.project-card h4 { font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0 1rem 0; }
+.project-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem; }
+
+.tech-labels { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.label {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Aperçu projet */
+.project-preview {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preview-violet { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); }
+.preview-blue-dark { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); }
+
+/* Skeleton Loader */
+.skeleton-loader {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.skeleton-line {
+  height: 12px;
+  background: #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+.skeleton-line.short { width: 60%; }
+.skeleton-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+  animation: shimmer 1.6s infinite;
+}
+
+.spinner-neon {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #cbd5e1;
+  border-top-color: var(--violet);
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.dashboard-footer {
+  background: white;
+  border-top: 1px solid var(--border-light);
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+.copyright { font-size: 0.85rem; color: var(--text-muted); }
+.footer-links { display: flex; gap: 1.75rem; }
+.f-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.f-link:hover { color: var(--violet); }
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.animate-card {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+.animate-card:nth-child(1) { animation-delay: 0.1s; }
+.animate-card:nth-child(2) { animation-delay: 0.2s; }
+.animate-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .nav-links { gap: 1rem; }
+  .nav-link { font-size: 0.8rem; }
+  .section-padding { padding: 3rem 0; }
+  .hero-section { padding: 2rem 0; }
+  .footer-content { flex-direction: column; text-align: center; }
+}
